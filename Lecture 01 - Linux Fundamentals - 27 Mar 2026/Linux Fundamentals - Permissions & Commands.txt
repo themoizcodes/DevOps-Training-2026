@@ -1,0 +1,219 @@
+Linux Fundamentals | Permissions & Commands
+
+Basic Commands
+
+ -pwd (Print working Directory) For where I am likewise path in windows 
+
+Windows mein it will be C:\Users\Nabeel\Desktop
+Windows ki term mein baat krein toh Desktop, Document, Download yeh saari cheezain kahan huti hai ??
+Yeh saari cheezain huti hai Ek user ke home mein ,jo kay user ke root location bhi kehlati hai 
+
+Ab linux mein /home/USERNAME
+
+ Linux mein ek cheez milegi most commonly dekhne ko milegi woh hai forward slashes 
+
+ Forward Slash Kya hai ???
+ Isko Hum linux ki zuban mein kehtein hai root 
+ JO Shuru mein dikhraha hai Forward Slash,so basically it it is the root directory Where all the files lived just like jese kay humara C Drive 
+
+ Linux mein jo sari files huti hai woh sari huti hai rrot pr 
+
+
+ Windows mein huamray pas tareeka huta hai kay humare pas kon konsi files hia toh ek toh humarae pas tareeka huta hai kay ek toh hum file explorer se dekhlete hai 
+ But cli pr yehi cheez krne ke liye humare pas command hai 
+
+
+ Agar mujhe ab list krwana hai tama folders ko abhi current directory mein hai Us ke liye mere pas command huti hai 
+ ls ya simple sa list 
+Yeh mujhe stamaam files dikhayega jo kay humare directory mein hai .Yeh aese hi hai jese kay humne tamam files file explorer mein kholi then humein har ek files ki detail chahiye linux mein 
+
+Jese ls -l 
+Right side pr hai humari file ka name ya folder konsa hai 
+Right left pr Urud mein jo month likha hai uska yeh mtlb hai kay yeh last kab modified hui hai file/folder
+Or in ka size aaraha hai in bits 
+
+
+Left handside pr dekhein 
+Jo expression likha hua hai woh permission hai permsission ke barabar mein jo number hai unke owners dikh rahay hai 
+
+Ab linux mein jo bhi file hai uske 2 user hutay hai ek huta hai owner user or ek huta hai humare pas owner group 
+Jo first name dikh raha hai , woh owner user hai or jo owner group hai woh bhi same name hai 
+
+Tou basically linux ki common or bydefault practice yeh hai kay jese hi hum linux mein apna koi bhi ek user account create krte hai toh by default us username ka group bhi create hujata hai 
+
+Yeh cheez windows mein dekhein toh Group alag create krna huta hai or user alag create krna huta hai 
+
+Zaroori nahi kay username ek humane name hi ho hum kuch bhi rkhskte hai ,hum koi system names bhi rkhskte hai DevOps .
+
+Agar mein devops name se user bnaon toh automatically devops ka name ka group bhi bnjayega 
+
+Agr mein bilkul left hand side pr dekhun toh mere pas likhi hui aarahi hai permsissions 
+
+drwxr-xr-x 2 m_talhaleo2002 m_talhaleo2002 4096 جولائی 26 12:55 Desktop
+drwxr-xr-x 2 m_talhaleo2002 m_talhaleo2002 4096 جولائی 26 12:55 Documents
+drwxr-xr-x 6 m_talhaleo2002 m_talhaleo2002 4096 ستمبر  23 14:16 Downloads
+drwxr-xr-x 2 m_talhaleo2002 m_talhaleo2002 4096 جولائی 26 12:55 Music
+-rw-rw-r-- 1 m_talhaleo2002 m_talhaleo2002 3144 جولائی 10 10:50 nickh-archive-keyring.deb
+
+
+Ab is mein kese pata chaly ga kay knsi cheez mere pas directory hai or knsi cheez mere pas file hai.
+Toh sab se easy tareeka hai equation likhi hui aarahi hai kay toh it defines kay yeh kya hai.Agar toh yeh folder hai toh mere pas sab se pehla letter likha hua huga 'd' which means directory .Agar tou yeh file hugi then mere pas simple sa dash aaraha huga Uske baad mere pas baki cheezain likhi hui hai 
+
+Ab iske baad agay mere pas 9 characters or likhein huay hai 
+Ab in characters ko 3 groups bnaleta hn 
+
+d rwx rwx r-x
+  yeh 3 gorups hai yeh permsissions hai kay kn kese access krskta hai 
+
+   Owner Ek toh jisne woh file bnayi hai Owner User 
+   Access dena hai or logon ko Owner Group 
+   Others 
+
+   Example Ahmed ne file bnayi jo eventually owner user hai or owner group hai woh huga ahmed 
+   Ab ek group bnalaiya Devops ka jis mein add krdiya hai Asif, toh owner group ki wjaha se Asif ko bhi milgya hai access 
+   Toh mere pas faraz hai yeh others mein aaraha hai .Toh isiliye humare pas permissions 3 group mein divide huti hai 
+
+   Jo permisssions huti hai woh huti hai 3 
+   r = read 
+   w = write 
+   x = execute
+
+Jese kay 
+d rwx rwx r-x
+Means Owner User ko saari permissions hai (read,write,execute) ki
+Issi tarah Owner Group ko saari permissions hai (read,write,execute) ki
+Lekin jo mere pas Others hai unke pas sirf 2 permission hai unke pas read and excute ki permission hai 
+Read krskta hai or execute yani chalaskta hai yani kay faraz 
+
+Misaal kay taur par humarae pas rkha hua hai Script file us file ko kon chala skta hai or kon read krskta hai or write means modified kon krskta hai 
+
+Ahmed Owner hai read write execute teeno krskta hai 
+Asif Owner Group Devops ka hissa hai Owner Devops ko bhi saari permsission hai read wriyte execute ki toh Asif teeno kaam krskta hai 
+And Faarz Others mein aata hai usko sirf script file read krne ki ijaazat hai or execute yani script file chalane ki ,script file ko  modified krne ki ijazat nahi hai 
+
+Ab linux in permsission ko kese manage krta hai ya ap in permission ko kese manage krte hai 
+
+Linux mein naye folder ke liye likhna huta hai 
+
+mkdir DIRECTORY_NAME
+make directory 
+
+Ab agar mein command chalaun jese kay
+mkdir DevOps-Class 
+toh directory create hujayegi then ls krein toh doikhega folder create hua wa 
+Picture Make_Directory.jpg mein dekhskte hai 
+
+toh directory dikh jayegi jese create ki hai with its permission 
+
+lekin abhi mein 
+/home/USERNAME pr mojood on jese kay image mein dekhskte hai 
+Picture pwd.jpg
+
+Ab mein apni current working directory change krunga, kay mujhe kahan jana hai USERNAME jahan folder bna hua hai DevOps-Class ka wahan jana hai , tou uske liye command huti hai 
+cd -- change directory
+cd DevOps-Class
+
+Yahan pr ek cheez note krne wali baat bohat zruri hai kaise humare pas cheezain print hurhai hai 
+Sab se pehle mere pas print huraha hai mera name mean USERNAME jo bhi apne rkha hua xyz kuch bhi ,jese mere case mein 
+
+m_talhaleo2002@Mohammad-ThinkPad-T480
+Jo sab se pehla print hurha hai mera name basically jiis mein login hua wa hn 
+Uske baad jo mere pas print hurahi hai woh hai @ kay mein kahan pr login hua wa hn
+Woh aaraha hai mere computer ka name , jisko hum loug kehtein hain computer name ya host name.techinically it is called hostname .
+Uske baad colon : kay talha system mein kis jagah kaam krraha hai tou yahan pr abhi humare pas dikh raha hai tilda ka sign ~ .
+Ab is jo tilda hai iska mtlb hai kay hum us user yani mtalhelo2002 ke home pr hai Toh linux ne tilda ko define krdiya like home ki location pr uske baad forward slash / DevOps-Class yanai kay current working directory hai.Means tild meri home directory user ki home directory uske andar ek or directory devops-class
+Picture cd-devops-class.jpg
+
+Ab agar mein yahan pr pwd krun toh yeh dekho 
+/home/m_talhaleo2002/DevOps-Class
+Picture Again-pwd.jpg to check the current directory jo kay change hugyi hai 
+
+Ab windows mein typical method right click new file pr click name dekar file bnani hai 
+
+Linux cli mein touch command se file create kskte hai 
+touch -- for creating file 
+touch FILENAME 
+
+example touch newfile.txt
+toh humare pas ek nayi file bnjayegi 
+
+Ab agar current directory mein list down krun toh ls -la 
+dikh jayegi file 
+
+nayi files dikhrahi hai list mein with the permissions kay usko kon kon si permsiion di jachuki hai 
+-rw-rw-r--
+
+owner user ko rw ki permission hai 
+owner group ko bhi read write 
+others ko sirf read ki permission hai 
+Picture touch-file.jpg
+
+
+Ab mein yeh chah raha hn kay permissions ka access dena hai then command huti hai 
+
+chmod
+
+chmod 744
+
+chmod command accepts krta hai numerical values na ky rwx 
+
+
+read ki numerical value 4 
+write  ki numerical value 2
+execute  ki  numerical value 1
+
+Total 7 
+
+rwx = 7
+rw- = 6
+r-x = 5
+r-- = 4
+
+Ab chmod 744 means 
+Owner uSer ko rwx read,write,execute krskta 
+Owner Group ko r-- read krskta hai 
+Others ko r-- read krskta hai 
+
+Puri command:
+chmod 744 newfile.txt
+Then mein check krun permission ls -l krun then mein ne jo permissions rkhi thi woh update hujayein gi 
+Picture chmod.jpg
+
+
+Agar humne kisi file ka owner user ya owner group change krna hai toh kya command chalayein gyae 
+
+chown ya change owner
+chown nabeel:root newfile.txt
+
+Owner User nabeel hi rahay but owner group ko administrator root krdo 
+
+Linux adminisstrative user ko root kehtein hia isi traah adminitsrative group ko root kehtein hain 
+
+Lekin ab ek error arha hai Operation not permitted
+Picture chown.jpg
+
+Jis tarah window mein right click krke run as adminsitartor krte hai issi tarah commadn se pehle linux mein sudo lgatein hai 
+sudo 
+super user do 
+then password mangta hai password enter krke 
+hum ne owner group change krdiya hai through chown command 
+Ab again ls -l krein then dekhsktein hai image mein 
+Picture chownsudo.jpg
+
+Ab error nahi aaya kyun is baar mein ne kaam super user privileges ke saath kiya hai 
+
+Super user iss also called the administrative user 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
